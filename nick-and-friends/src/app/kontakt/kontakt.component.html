@@ -1,0 +1,24 @@
+<h1>Kontakt</h1>
+<div class="flex-row center-all">
+  <div id="kontakt-box">
+    <form [formGroup]="contactForm" (ngSubmit)="sendMail()">
+
+      <div class="flex-row center-all gap-30">
+        <div class="flex-column  gap-30">
+          <label for="name">Name:</label>
+          <label for="email">E-Mail:</label>
+        </div>
+
+        <div class="flex-column gap-30">
+          <input type="text" id="name" formControlName="name">
+          <input type="email" id="email" formControlName="email">
+        </div>
+      </div>
+
+      <div id="submit-button-container">
+        <button id="submit-button" type="submit" [disabled]="contactForm.invalid">Absenden</button>
+      </div>
+    </form>
+  </div>
+</div>
+

@@ -1,0 +1,13 @@
+#navbar-container {
+  background-color: pink;
+  padding: 30px;
+}
+
+a {
+  cursor: pointer;
+}
+
+.reiter {
+  width: 120px;
+  text-align: center;
+}
