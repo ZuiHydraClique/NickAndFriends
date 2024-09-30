@@ -13,6 +13,7 @@
   padding: 20px;
   text-align: center;
   width: 15%;
+  min-width: 150px;
   border-radius: 7px;
   margin-bottom: 20px;
   box-shadow: rgba(0, 0, 0, 0.39) 5px 5px 10px 1px;

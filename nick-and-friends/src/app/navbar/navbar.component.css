@@ -1,6 +1,19 @@
 #navbar-container {
+  z-index: 100;
+  width: 90%;
+  padding: 30px 5%;
+  position: fixed;
+  top: 0;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.sticky-navbar {
   background-color: pink;
-  padding: 30px;
+  box-shadow: black 0px 1px 10px 1px; /* Lila Hintergrund beim Scrollen */
+}
+
+.transparent-navbar {
+  background-color: transparent;
 }
 
 a {
@@ -10,4 +23,70 @@ a {
 .reiter {
   width: 120px;
   text-align: center;
+  background-color: #d9647a;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.hamburger {
+  font-size: 30px;
+  cursor: pointer;
+  transform-origin: top;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transform: scaleY(0);
+  opacity: 0;
+  height: 0;
+}
+
+.open-reiter {
+
+}
+
+#navbar-elements {
+  transform-origin: top;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transform: scaleY(1);
+  max-height: 500px;
+  opacity: 1;
+}
+
+#navbar-elements.open {
+  transform-origin: top;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transform: scaleY(0);
+  max-height: 0;
+  opacity: 0;
+}
+
+/* Geschlossenes Menü */
+@media (max-width: 900px) {
+  #navbar-elements {
+    transform-origin: top;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transform: scaleY(0);
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+
+  .hamburger {
+    display: block;
+    transform-origin: top;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transform: scaleY(1);
+    opacity: 1;
+    height: auto;
+  }
+
+  #navbar-elements.open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /*runterklapp-animation Hamburger*/
+    text-align: center;
+    transform: scaleY(1);
+    opacity: 1;
+    max-height: 500px;
+  }
 }

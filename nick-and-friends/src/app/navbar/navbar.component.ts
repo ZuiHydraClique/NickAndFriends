@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import {Component, HostListener} from '@angular/core';
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [],
+  imports: [
+    NgIf
+  ],
   templateUrl: './navbar.component.html',
   styleUrls: [
     './navbar.component.css',
@@ -11,6 +14,18 @@ import { Component } from '@angular/core';
   ]
 })
 export class NavbarComponent {
+
+  isScrolled = false;
+  isOpen = false;
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.isScrolled = window.scrollY > 30;
+  }
+
+  toggleNavbar() {
+    this.isOpen = !this.isOpen;
+  }
 
   toBandmitglieder() {
     document.getElementById("bandmitglieder")!.scrollIntoView({behavior:"smooth"})

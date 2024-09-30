@@ -4,14 +4,14 @@
     <form [formGroup]="contactForm" (ngSubmit)="sendMail()">
 
       <div class="flex-row center-all gap-30">
-        <div class="flex-column  gap-30">
-          <label for="name">Name:</label>
+        <div class="flex-column">
           <label for="email">E-Mail:</label>
+          <input type="email" id="email" formControlName="email">
         </div>
 
-        <div class="flex-column gap-30">
+        <div class="flex-column">
+          <label for="name">Name:</label>
           <input type="text" id="name" formControlName="name">
-          <input type="email" id="email" formControlName="email">
         </div>
       </div>
 
