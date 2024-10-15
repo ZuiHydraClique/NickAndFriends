@@ -4,9 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod && mv dist/sample-angular _static",
+    "build": "ng build --production && mv dist/sample-angular _static",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build:digitalocean": "npm install --production=false && npm run build && npm ci"
   },
   "private": true,
   "dependencies": {
@@ -34,5 +35,9 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.5.2"
+  },
+  "engines": {
+    "node": "20.9.0",
+    "yarn": "^0.14.0"
   }
 }
