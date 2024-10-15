@@ -1,0 +1,20 @@
+#kontakt-box {
+  background-color: pink;
+  padding: 20px;
+  width: 50%;
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.39) 5px 5px 10px 1px;
+}
+
+#submit-button {
+  padding: 10px;
+  background-color: #d9647a;
+  color: black;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.39) 2px 2px 5px 1px;
+}
+
+#submit-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
