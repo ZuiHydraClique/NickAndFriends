@@ -1,0 +1,20 @@
+.song-title {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.song-card-container {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.song-card {
+    background-color: pink;
+    padding: 20px;
+    text-align: center;
+    width: 15%;
+    min-width: 150px;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.39) 5px 5px 10px 1px;
+}
