@@ -1,9 +1,11 @@
 #impressum-container {
     text-align: center;
-    background-color: pink;
+    background-color: #800020;
     margin-top: 30px;
     padding-top: 10px;
     padding-bottom: 20px;
+    text-shadow: #F7E7CE 0px 0px 10px;
+    font-weight: bold;
 }
 
 #impressum-headline {

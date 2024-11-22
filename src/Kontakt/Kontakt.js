@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
+import emailjs from 'emailjs-com'; // EmailJS importieren
 import './Kontakt.css'; // Stile für diese Komponente
 import '../styles/flex.css'; // Gemeinsame Flex-Stile
 
 const Kontakt = () => {
     const [formData, setFormData] = useState({
         name: '',
-        email: ''
+        email: '',
+        message: ''
     });
+
     const [errors, setErrors] = useState({
         name: false,
-        email: false
+        email: false,
+        message: false
     });
+
+    const [isSent, setIsSent] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -21,21 +27,42 @@ const Kontakt = () => {
             setErrors({ ...errors, name: value.trim() === '' });
         } else if (name === 'email') {
             setErrors({ ...errors, email: !/\S+@\S+\.\S+/.test(value) });
+        } else if (name === 'message') {
+            setErrors({ ...errors, message: value.trim() === '' });
         }
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!errors.name && !errors.email && formData.name && formData.email) {
-            console.log(formData); // Hier kann die Funktion zum Versenden von E-Mails integriert werden
+
+        if (!errors.name && !errors.email && !errors.message && formData.name && formData.email && formData.message) {
+            emailjs
+                .send(
+                    'service_id', // Ersetze mit deinem EmailJS-Service-ID
+                    'template_id', // Ersetze mit deiner EmailJS-Template-ID
+                    formData,
+                    'user_id' // Ersetze mit deinem EmailJS-User-ID
+                )
+                .then(
+                    (response) => {
+                        console.log('SUCCESS!', response.status, response.text);
+                        setIsSent(true);
+                        setFormData({ name: '', email: '', message: '' }); // Formular zurücksetzen
+                    },
+                    (err) => {
+                        console.error('FAILED...', err);
+                        alert('Es gab ein Problem beim Senden der Nachricht. Bitte versuchen Sie es später erneut.');
+                    }
+                );
         }
     };
 
     return (
-        <div>
+        <div id="kontakt-container">
             <h1>Kontakt</h1>
             <div className="flex-row center-all">
                 <div id="kontakt-box">
+                    {isSent && <p className="success-message">Nachricht erfolgreich gesendet!</p>}
                     <form onSubmit={handleSubmit}>
                         <div className="flex-row center-all gap-30">
                             <div className="flex-column">
@@ -47,7 +74,9 @@ const Kontakt = () => {
                                     value={formData.email}
                                     onChange={handleChange}
                                 />
-                                {errors.email && <span className="error">Bitte geben Sie eine gültige E-Mail-Adresse ein.</span>}
+                                {errors.email && (
+                                    <span className="error">Bitte geben Sie eine gültige E-Mail-Adresse ein.</span>
+                                )}
                             </div>
 
                             <div className="flex-column">
@@ -63,11 +92,25 @@ const Kontakt = () => {
                             </div>
                         </div>
 
+                        <div className="flex-column">
+                            <label htmlFor="message">Nachricht:</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="5"
+                                value={formData.message}
+                                onChange={handleChange}
+                            ></textarea>
+                            {errors.message && <span className="error">Nachricht ist erforderlich.</span>}
+                        </div>
+
                         <div id="submit-button-container">
                             <button
                                 id="submit-button"
                                 type="submit"
-                                disabled={errors.name || errors.email || !formData.name || !formData.email}
+                                disabled={
+                                    errors.name || errors.email || errors.message || !formData.name || !formData.email || !formData.message
+                                }
                             >
                                 Absenden
                             </button>

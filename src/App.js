@@ -7,11 +7,18 @@ import Impressum from "./Impressum/Impressum";
 import Weihnachtslieder from "./Weihnachtslieder/Weihnachtslieder";
 import JazzPopLieder from "./Jazzpoplieder/JazzPopLieder";
 import FAQ from "./FAQ/FAQ";
+import Logo from '../src/pictures/LOGO_N&F.png'
+import React from "react";
 
 
 function App() {
   return (
-      <div>
+      <div id={"main-container"}>
+
+          <div id="logo-container">
+              <img src={Logo} id="logo" alt="NickAndFriends"/>
+          </div>
+
           <Navbar />
 
           <div id="bandmitglieder"><Bandmitglieder /></div>

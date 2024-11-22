@@ -1,18 +1,27 @@
 #bandmitglieder-container {
-    position: relative; /* Positioniert den Container relativ, damit das Overlay nur innerhalb dieses Containers angezeigt wird */
+    position: relative;
     overflow: hidden;
     padding-top: 70px;
     padding-bottom: 30px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     color: white;
 }
 
 .mitglied {
-    background-color: pink;
+    width: 10%;
     color: black;
-    width: 50%;
     text-align: center;
-    padding-bottom: 50px;
-    border-radius: 10px;
-    box-shadow: black 10px 10px 10px 10px;
+}
+
+.band-image {
+    width: 50%;
+    padding-bottom: 30px;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+h2 {
+    text-shadow: #800020 1px 1px 1px;
 }

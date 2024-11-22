@@ -1,92 +1,38 @@
-#navbar-container {
-    z-index: 100;
-    width: 90%;
-    padding: 30px 5%;
-    position: fixed;
-    top: 0;
-    transition: background-color 0.3s ease-in-out;
-}
-
-.sticky-navbar {
-    background-color: pink;
-    box-shadow: black 0 1px 10px 1px; /* Lila Hintergrund beim Scrollen */
-}
-
-.transparent-navbar {
-    background-color: transparent;
-}
-
-a {
+.navbar-link {
+    text-decoration: none;
+    text-shadow: rgba(128, 0, 32, 0.38) 0px 0px 2px;
+    font-size: 22px;
     cursor: pointer;
-}
-
-.reiter {
-    width: 120px;
+    font-weight: bold;
+    width: 30%;
     text-align: center;
-    background-color: #d9647a;
-    padding: 5px;
+    transition: ease 0.3s;
+}
+
+.navbar-link:hover {
+    background-color: #800020;
+    text-shadow: #F7E7CE 0px 0px 8px;
     border-radius: 5px;
+    transition: ease 0.3s;
 }
 
-.hamburger {
-    font-size: 30px;
-    cursor: pointer;
-    transform-origin: top;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    transform: scaleY(0);
-    opacity: 0;
-    height: 0;
+#navbar-container {
+    position: sticky;
+    top: 10px;
+    left: 2.5%;
+    width: 95%;
+    border-radius: 10px;
+    border: 5px solid #800020;
+    background-color: #F7E7CE;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
 }
 
-.open-reiter {
-
-}
-
-#navbar-elements {
-    transform-origin: top;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    transform: scaleY(1);
-    max-height: 500px;
-    opacity: 1;
-}
-
-#navbar-elements.open {
-    transform-origin: top;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    transform: scaleY(0);
-    max-height: 0;
-    opacity: 0;
-}
-
-/* Geschlossenes Menü */
-@media (max-width: 900px) {
-    #navbar-elements {
-        transform-origin: top;
-        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-        transform: scaleY(0);
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
-    }
-
-    .hamburger {
-        display: block;
-        transform-origin: top;
-        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-        transform: scaleY(1);
-        opacity: 1;
-        height: auto;
-    }
-
-    #navbar-elements.open {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /*runterklapp-animation Hamburger*/
-        text-align: center;
-        transform: scaleY(1);
-        opacity: 1;
-        max-height: 500px;
-    }
+#navbar-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }

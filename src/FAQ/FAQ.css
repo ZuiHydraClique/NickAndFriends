@@ -1,33 +1,30 @@
-.accordion {
-    border: 1px solid #000000;
-    border-radius: 5px;
-    overflow: hidden;
-    width: 80%;
+#faq-container {
+    padding-bottom: 50px;
 }
 
-.accordion-header {
-    background: pink;
-    padding: 15px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #000000;
+.accordion-button.collapsed {
+    border-bottom: 2px solid #800020;
+    background-color: #F7E7CE;
+    padding: 12px 20px;
+    text-align: left;
+    font-weight: bold;
+    border-radius: 10px;
 }
 
-.accordion-header h3 {
-    margin: 0;
+/* Stil für den Accordion Header, wenn es geöffnet ist */
+.accordion-button:not(.collapsed) {
+    background-color: #800020;  /* Hintergrundfarbe beim Öffnen */
+    text-shadow: #F7E7CE 1px 1px 4px;
+    border-radius: 10px;
 }
 
-.accordion-content {
-    max-height: 0; /* Starthöhe auf 0 */
-    overflow: hidden; /* Verstecke den Inhalt */
-    transition: max-height 1s ease-out; /* Sanfte Übergang für max-height */
-    padding: 0 15px; /* Padding hinzufügen */
+/* Stil für das Accordion Body */
+.accordion-body {
+    background-color: #F7E7CE;  /* Helles Grau als Hintergrund */
+    padding: 15px;               /* Padding für den Inhalt */
 }
 
-.accordion-content.open {
-    max-height: 100px; /* Maximale Höhe beim Öffnen, passe dies nach Bedarf an */
-    padding: 15px; /* Padding hinzufügen, wenn geöffnet */
-    background: white; /* Hintergrundfarbe */
+/* Optional: Stil für das Icon (Plus/Minus Symbol) */
+.accordion-button::after {
+    color: white;               /* Setzt die Farbe des Symbols */
 }

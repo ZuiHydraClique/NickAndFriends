@@ -1,3 +1,28 @@
 h1 {
     text-align: center;
+    text-shadow: #800020 0px 0px 2px;
+    padding-bottom: 20px;
+}
+
+* {
+    color: #333333 !important;
+}
+
+#main-container {
+    background-color: #F7E7CE;
+    font-family: "Roboto Light";
+}
+
+#logo-container {
+    width: 100%;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+#logo {
+    width: 30%;
+    height: auto;
+    top: 5%;
+    left: 35%;
 }
