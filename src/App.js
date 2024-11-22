@@ -13,7 +13,7 @@ import React from "react";
 
 function App() {
   return (
-      <div id={"main-container"}>
+      <div id="main-container">
 
           <div id="logo-container">
               <img src={Logo} id="logo" alt="NickAndFriends"/>
