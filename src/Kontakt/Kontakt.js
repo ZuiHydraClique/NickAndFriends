@@ -39,10 +39,10 @@ const Kontakt = () => {
         if (!errors.name && !errors.email && !errors.message && formData.name && formData.email && formData.message) {
             emailjs
                 .send(
-                    'service_id', // Ersetze mit deinem EmailJS-Service-ID
-                    'template_id', // Ersetze mit deiner EmailJS-Template-ID
+                    'service_vnd7r35', // Ersetze mit deinem EmailJS-Service-ID
+                    'template_eu4xloo', // Ersetze mit deiner EmailJS-Template-ID
                     formData,
-                    'user_id' // Ersetze mit deinem EmailJS-User-ID
+                    'HMTkyNZjAXRKX8-8-' // Ersetze mit deinem EmailJS-User-ID
                 )
                 .then(
                     (response) => {
