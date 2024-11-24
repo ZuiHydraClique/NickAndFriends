@@ -34,5 +34,52 @@
 #navbar-content {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    transition: ease 0.5s;
     width: 100%;
 }
+
+#navbar-logo {
+    width: 3%;
+    margin-right: 10px;
+    transition: ease 0.5s;
+}
+
+#navbar-logo:hover {
+    transition: ease 0.5s;
+    filter: drop-shadow(0px 4px 10px #800020);
+    cursor: pointer;
+}
+
+@media (max-width: 1350px) {
+    /* Navbar Content */
+    #navbar-content  {
+        transition: ease 0.5s;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center; /* Zentriert die Flex-Items horizontal */
+        justify-content: center; /* Zentriert die Flex-Items vertikal */
+        width: 100%; /* Stellt sicher, dass der Inhalt die gesamte Breite einnimmt */
+    }
+
+    /* Navbar Logo */
+    #navbar-logo {
+        width: 7%;
+        position: fixed;
+        top: 2%;
+        left: 2%;
+        z-index: 1000;
+    }
+
+    /* Navbar Container */
+    #navbar-container {
+        position: static; /* Entfernt das Sticky-Verhalten */
+        width: 80%; /* Setzt die Breite des Containers auf 70% */
+        margin: 0 auto; /* Zentriert den Container horizontal */
+        display: flex; /* Stellt sicher, dass die Navbar Flexbox verwendet */
+        justify-content: center; /* Zentriert den Inhalt horizontal */
+        padding-bottom: 30px;
+        padding-top: 30px;
+    }
+}
+

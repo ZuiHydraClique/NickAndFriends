@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com'; // EmailJS importieren
 import './Kontakt.css'; // Stile für diese Komponente
-import '../styles/flex.css'; // Gemeinsame Flex-Stile
+import '../styles/flex.css';
+import Icon from "../pictures/Sektionen/Kontakt.png"; // Gemeinsame Flex-Stile
 
 const Kontakt = () => {
     const [formData, setFormData] = useState({
@@ -58,19 +59,23 @@ const Kontakt = () => {
     };
 
     return (
-        <div id="kontakt-container">
-            <h1>Kontakt</h1>
+        <div className="section-container">
+            <div className="headline flex-row">
+                <h1>Kontakt</h1>
+                <img src={Icon} className="headline-icon"/>
+            </div>
             <div className="flex-row center-all">
                 <div id="kontakt-box">
                     {isSent && <p className="success-message">Nachricht erfolgreich gesendet!</p>}
                     <form onSubmit={handleSubmit}>
-                        <div className="flex-row center-all gap-30">
+                        <div id="mail-name-container">
+
                             <div className="flex-column">
-                                <label htmlFor="email">E-Mail:</label>
                                 <input
                                     type="email"
                                     id="email"
                                     name="email"
+                                    placeholder="E-Mail"
                                     value={formData.email}
                                     onChange={handleChange}
                                 />
@@ -80,40 +85,40 @@ const Kontakt = () => {
                             </div>
 
                             <div className="flex-column">
-                                <label htmlFor="name">Name:</label>
                                 <input
                                     type="text"
                                     id="name"
+                                    placeholder="Name"
                                     name="name"
                                     value={formData.name}
                                     onChange={handleChange}
                                 />
                                 {errors.name && <span className="error">Name ist erforderlich.</span>}
                             </div>
-                        </div>
 
-                        <div className="flex-column">
-                            <label htmlFor="message">Nachricht:</label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows="5"
-                                value={formData.message}
-                                onChange={handleChange}
-                            ></textarea>
-                            {errors.message && <span className="error">Nachricht ist erforderlich.</span>}
-                        </div>
+                            <div className="flex-column">
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    placeholder="Welche Lieder möchten Sie hören?"
+                                    rows="5"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                ></textarea>
+                                {errors.message && <span className="error">Nachricht ist erforderlich.</span>}
+                            </div>
 
-                        <div id="submit-button-container">
-                            <button
-                                id="submit-button"
-                                type="submit"
-                                disabled={
-                                    errors.name || errors.email || errors.message || !formData.name || !formData.email || !formData.message
-                                }
-                            >
-                                Absenden
-                            </button>
+                            <div id="submit-button-container">
+                                <button
+                                    id="submit-button"
+                                    type="submit"
+                                    disabled={
+                                        errors.name || errors.email || errors.message || !formData.name || !formData.email || !formData.message
+                                    }
+                                >
+                                    Absenden
+                                </button>
+                            </div>
                         </div>
                     </form>
                 </div>

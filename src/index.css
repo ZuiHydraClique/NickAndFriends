@@ -1,5 +1,5 @@
-body {
-  margin: 0;
-  background-color: #F7E7CE;
-
+html, body {
+  height: 100%; /* Die Seite soll die volle Höhe des Viewports ausfüllen */
+  margin: 0;    /* Entfernt den Standardabstand */
+  padding: 0;   /* Entfernt das Standard-Padding */
 }

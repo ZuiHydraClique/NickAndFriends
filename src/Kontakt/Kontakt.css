@@ -7,21 +7,30 @@
     box-shadow: rgba(0, 0, 0, 0.39) 5px 5px 10px 1px;
 }
 
+#mail-name-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 #submit-button {
-    margin-top: 20px;
     padding: 10px;
     background-color: #F7E7CE;
     border: 3px solid #800020;
     color: black;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.39) 2px 2px 5px 1px;
+    transition: ease 0.3s;
+}
+
+#submit-button:hover {
+    background-color: #800020;
+    cursor: pointer;
+    transition: ease 0.3s;
+    text-shadow: #F7E7CE 0 0 3px;
 }
 
 #submit-button-container {
     display: flex;
     justify-content: flex-end;
-}
-
-#kontakt-container {
-    padding-bottom: 50px;
 }

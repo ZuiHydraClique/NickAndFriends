@@ -3,6 +3,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './FAQ.css';
 import '../styles/flex.css';
+import Icon from "../pictures/Sektionen/FAQ.png";
 
 const FAQ = () => {
     const items = [
@@ -19,8 +20,11 @@ const FAQ = () => {
     ];
 
     return (
-        <div id="faq-container">
-            <h1>FAQs</h1>
+        <div className="section-container">
+            <div className="headline flex-row">
+                <h1>FAQs</h1>
+                <img src={Icon} className="headline-icon"/>
+            </div>
             <div className="flex-row center-all">
                 <div className="accordion">
                     <Accordion flush>
