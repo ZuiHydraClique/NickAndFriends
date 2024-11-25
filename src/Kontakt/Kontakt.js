@@ -18,37 +18,55 @@ const Kontakt = () => {
     });
 
     const [isSent, setIsSent] = useState(false);
+    const [showNotification, setShowNotification] = useState(false); // Benachrichtigungs-Flag
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
 
-        // Validation
+        // Validierung
+        let newErrors = { ...errors };
         if (name === 'name') {
-            setErrors({ ...errors, name: value.trim() === '' });
+            newErrors.name = value.trim() === '';
         } else if (name === 'email') {
-            setErrors({ ...errors, email: !/\S+@\S+\.\S+/.test(value) });
+            newErrors.email = !/\S+@\S+\.\S+/.test(value);
         } else if (name === 'message') {
-            setErrors({ ...errors, message: value.trim() === '' });
+            newErrors.message = value.trim() === '';
+        }
+
+        setErrors(newErrors);
+
+        // Benachrichtigung ausblenden, wenn alle Felder korrekt sind
+        if (!newErrors.name && !newErrors.email && !newErrors.message) {
+            setShowNotification(false);
         }
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!errors.name && !errors.email && !errors.message && formData.name && formData.email && formData.message) {
+        const hasErrors =
+            formData.name.trim() === '' ||
+            !/\S+@\S+\.\S+/.test(formData.email) ||
+            formData.message.trim() === '';
+
+        if (hasErrors) {
+            setShowNotification(true); // Benachrichtigung anzeigen
+        } else {
+            setShowNotification(false); // Benachrichtigung ausblenden, wenn erfolgreich
             emailjs
                 .send(
-                    'service_vnd7r35', // Ersetze mit deinem EmailJS-Service-ID
-                    'template_eu4xloo', // Ersetze mit deiner EmailJS-Template-ID
+                    'service_vnd7r35',
+                    'template_eu4xloo',
                     formData,
-                    'HMTkyNZjAXRKX8-8-' // Ersetze mit deinem EmailJS-User-ID
+                    'HMTkyNZjAXRKX8-8-'
                 )
                 .then(
                     (response) => {
                         console.log('SUCCESS!', response.status, response.text);
                         setIsSent(true);
                         setFormData({ name: '', email: '', message: '' }); // Formular zurücksetzen
+                        setErrors({ name: false, email: false, message: false }); // Fehler zurücksetzen
                     },
                     (err) => {
                         console.error('FAILED...', err);
@@ -62,14 +80,22 @@ const Kontakt = () => {
         <div className="section-container">
             <div className="headline flex-row">
                 <h1>Kontakt</h1>
-                <img src={Icon} className="headline-icon"/>
+                <img src={Icon} className="headline-icon" />
             </div>
             <div className="flex-row center-all">
                 <div id="kontakt-box">
                     {isSent && <p className="success-message">Nachricht erfolgreich gesendet!</p>}
+
+                    {/* Fehlermeldung bei falschen Angaben */}
+                    {showNotification && !isSent && (
+                        <p id="error-notification">
+                            Bitte überprüfen Sie Ihre Angaben, bevor Sie das Formular absenden.<br />
+                            Alle Felder müssen ausgefüllt sein.
+                        </p>
+                    )}
+
                     <form onSubmit={handleSubmit}>
                         <div id="mail-name-container">
-
                             <div className="flex-column">
                                 <input
                                     type="email"
@@ -112,9 +138,6 @@ const Kontakt = () => {
                                 <button
                                     id="submit-button"
                                     type="submit"
-                                    disabled={
-                                        errors.name || errors.email || errors.message || !formData.name || !formData.email || !formData.message
-                                    }
                                 >
                                     Absenden
                                 </button>

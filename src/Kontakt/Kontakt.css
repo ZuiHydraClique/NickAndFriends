@@ -17,7 +17,7 @@
     padding: 10px;
     background-color: #F7E7CE;
     border: 3px solid #800020;
-    color: black;
+    color: #333333;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.39) 2px 2px 5px 1px;
     transition: ease 0.3s;
@@ -36,4 +36,24 @@
 #submit-button-container {
     display: flex;
     justify-content: flex-end;
+}
+
+input {
+    border-radius: 5px;
+    border: 3px solid #800020;
+}
+
+textarea {
+    border-radius: 5px;
+    border: 3px solid #800020;
+}
+
+#error-notification {
+    color:  #F7E7CE;
+    font-weight: bold;
+    background-color: #800020;
+    border-radius: 5px;
+    text-shadow: #F7E7CE 0 0 2px;
+    text-align: center;
+    padding: 10px;
 }
