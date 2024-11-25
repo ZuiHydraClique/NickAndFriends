@@ -25,7 +25,7 @@ const FAQ = () => {
                 <h1>FAQs</h1>
                 <img src={Icon} className="headline-icon"/>
             </div>
-            <div className="flex-row center-all">
+            <div className="flex-row center-all accordion-container">
                 <div className="accordion">
                     <Accordion flush>
                         {items.map((item, index) => (

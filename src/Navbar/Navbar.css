@@ -43,11 +43,12 @@
     width: 3%;
     margin-right: 10px;
     transition: ease 0.5s;
+    filter: drop-shadow(0px 0px 2px #800020);
 }
 
 #navbar-logo:hover {
     transition: ease 0.5s;
-    filter: drop-shadow(0px 4px 10px #800020);
+    filter: drop-shadow(0px 0px 10px #800020);
     cursor: pointer;
 }
 

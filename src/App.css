@@ -20,6 +20,7 @@
     height: auto;
     top: 5%;
     left: 35%;
+    filter: drop-shadow(0px 0px 3px #800020);
 }
 
 .horizontal-line {

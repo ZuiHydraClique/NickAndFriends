@@ -4,23 +4,35 @@
     padding: 12px 20px;
     text-align: left;
     font-weight: bold;
+    transition: ease 0.5s;
     border-radius: 10px;
 }
 
-/* Stil für den Accordion Header, wenn es geöffnet ist */
 .accordion-button:not(.collapsed) {
-    background-color: #800020;  /* Hintergrundfarbe beim Öffnen */
+    background-color: #F7E7CE;
     text-shadow: #F7E7CE 1px 1px 4px;
     border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: ease 0.5s;
 }
 
-/* Stil für das Accordion Body */
 .accordion-body {
-    background-color: #F7E7CE;  /* Helles Grau als Hintergrund */
-    padding: 15px;               /* Padding für den Inhalt */
+    background-color: #F7E7CE;
+    padding: 15px;
+    border-bottom: 2px solid #800020;
 }
 
-/* Optional: Stil für das Icon (Plus/Minus Symbol) */
-.accordion-button::after {
-    color: white;               /* Setzt die Farbe des Symbols */
+.accordion {
+    width: 100%;
+    --bs-accordion-border-color: #800020;
+}
+
+.accordion-container {
+    width: 70%;
+    margin-left: 15%;
+}
+
+.accordion-item {
+    --bs-accordion-btn-focus-box-shadow: none;
 }
