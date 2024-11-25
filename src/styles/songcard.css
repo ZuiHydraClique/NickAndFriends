@@ -15,9 +15,9 @@
 
 .song-card {
     background-color: #F7E7CE;
+    color: #333333;
     padding: 20px;
     text-align: center;
-    width: 15%;
     min-width: 150px;
     border-radius: 7px;
     margin-bottom: 20px;
@@ -27,6 +27,8 @@
 
 .song-card:hover {
     background-color: #800020;
-    text-shadow: #F7E7CE 0px 0px 8px;
+    text-shadow: #F7E7CE 0 0 8px;
     transition: ease 0.3s;
+    color: #F7E7CE;
+    cursor: pointer;
 }

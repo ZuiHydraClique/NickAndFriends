@@ -1,3 +1,7 @@
+.accordion-button {
+    color: #333333;
+}
+
 .accordion-button.collapsed {
     border-bottom: 2px solid #800020;
     background-color: #F7E7CE;
@@ -9,12 +13,13 @@
 }
 
 .accordion-button:not(.collapsed) {
-    background-color: #F7E7CE;
+    background-color: #800020;
     text-shadow: #F7E7CE 1px 1px 4px;
     border-radius: 10px;
     font-size: 18px;
     font-weight: bold;
     transition: ease 0.5s;
+    color: #F7E7CE;
 }
 
 .accordion-body {

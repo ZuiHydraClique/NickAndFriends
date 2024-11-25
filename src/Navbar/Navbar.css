@@ -1,17 +1,19 @@
 .navbar-link {
     text-decoration: none;
-    text-shadow: rgba(128, 0, 32, 0.38) 0px 0px 2px;
+    text-shadow: rgba(128, 0, 32, 0.38) 0 0 2px;
     font-size: 22px;
     cursor: pointer;
     font-weight: bold;
     width: 30%;
     text-align: center;
     transition: ease 0.3s;
+    color: #333333;
 }
 
 .navbar-link:hover {
     background-color: #800020;
-    text-shadow: #F7E7CE 0px 0px 8px;
+    text-shadow: #F7E7CE 0 0 8px;
+    color: #F7E7CE;
     border-radius: 5px;
     transition: ease 0.3s;
 }
@@ -24,7 +26,7 @@
     border-radius: 10px;
     border: 5px solid #800020;
     background-color: #F7E7CE;
-    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
     z-index: 1000;
     display: flex;
     align-items: center;
@@ -58,12 +60,11 @@
         transition: ease 0.5s;
         flex-direction: column;
         gap: 10px;
-        align-items: center; /* Zentriert die Flex-Items horizontal */
-        justify-content: center; /* Zentriert die Flex-Items vertikal */
-        width: 100%; /* Stellt sicher, dass der Inhalt die gesamte Breite einnimmt */
+        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
 
-    /* Navbar Logo */
     #navbar-logo {
         width: 7%;
         position: fixed;
@@ -74,11 +75,11 @@
 
     /* Navbar Container */
     #navbar-container {
-        position: static; /* Entfernt das Sticky-Verhalten */
-        width: 80%; /* Setzt die Breite des Containers auf 70% */
-        margin: 0 auto; /* Zentriert den Container horizontal */
-        display: flex; /* Stellt sicher, dass die Navbar Flexbox verwendet */
-        justify-content: center; /* Zentriert den Inhalt horizontal */
+        position: static;
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
         padding-bottom: 30px;
         padding-top: 30px;
     }
