@@ -80,7 +80,7 @@ const Kontakt = () => {
         <div className="section-container">
             <div className="headline flex-row">
                 <h1>Kontakt</h1>
-                <img src={Icon} className="headline-icon" />
+                <img src={Icon} className="headline-icon" alt="icon" />
             </div>
             <div className="flex-row center-all">
                 <div id="kontakt-box">
