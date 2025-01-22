@@ -1,0 +1,7 @@
+- Menüburger, wenn Smartphone-Ansicht ✅
+Responsiveness anpassen
+
+Besprechung mit Zui und Nick gemeinsam:
+Passung von Schriftart und Icons muss man dann mal mit Roboto ausprobieren
+Glow Effekt vom Logo: Leichter Glow
+Unten beim Impressum entweder die Schriftfarbe zu Champagner wechseln oder bei der Farbgebung von oben bleiben

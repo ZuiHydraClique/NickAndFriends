@@ -13,7 +13,7 @@ const Bandmitglieder = () => {
                 <h1>Bandmitglieder</h1>
                 <img src={Icon} className="headline-icon"/>
             </div>
-            <div className="flex-row center-all gap-10-prozent">
+            <div id="bandmitglieder-container">
                 <div className="mitglied">
                     <img src={Nick} className="band-image"/>
                     <h2>Nick</h2>

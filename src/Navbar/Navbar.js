@@ -21,6 +21,8 @@ const Navbar = () => {
         top: offsetPosition,
         behavior: "smooth",
       });
+
+      setIsOpen(false);
     }
   };
 

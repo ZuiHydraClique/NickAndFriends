@@ -57,3 +57,9 @@ textarea {
     text-align: center;
     padding: 10px;
 }
+
+@media (max-width: 768px) {
+    #kontakt-box {
+        width: 120%;
+    }
+}

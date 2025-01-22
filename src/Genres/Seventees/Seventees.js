@@ -2,7 +2,7 @@ import React from 'react';
 import './Seventees.css';
 import '../../styles/flex.css';
 import '../../styles/songcard.css';
-import Icon from "../../pictures/Sektionen/Genres/LatinJazz.png";
+import Icon from "../../pictures/Sektionen/Genres/70's.png";
 
 const Seventees = () => {
     const songs = [

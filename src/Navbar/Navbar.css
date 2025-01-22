@@ -67,8 +67,9 @@
     height: 20px;
     z-index: 1001;
     position: fixed;
-    top: 2%;
-    right: 20px;
+    top: 3%;
+    right: 25px;
+    transition: all 0.2s ease;
   }
   
   .hamburger span {
@@ -77,7 +78,11 @@
     width: 100%;
     background: #800020;
     border-radius: 2px;
-    transition: all 0.3s ease-in-out;
+  }
+
+  .hamburger:hover{
+    transition: all 0.2s ease;
+    filter: drop-shadow(1px 1px 2px #00000088);
   }
   
   /* Menü */
@@ -89,7 +94,7 @@
     transform: translateX(100%);
   }
   
-  @media (max-width: 1350px) {
+@media (max-width: 1350px) {
 
     #navbar-container {
         position: sticky;
@@ -147,8 +152,12 @@
     #navbar-logo {
       width: 10%;
       position: absolute;
-      top: 10px;
-      left: 10px;
+      top: 2.5%;
+      left: 25px;
+    }
+
+    .navbar-link {
+      width: 100%;
     }
   }
   

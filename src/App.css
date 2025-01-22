@@ -17,6 +17,7 @@
     top: 5%;
     left: 35%;
     filter: drop-shadow(0px 0px 3px #800020);
+    transition: width 0.5s ease;
 }
 
 .horizontal-line {
@@ -54,4 +55,16 @@ h1 {
     top: 25%;
     transform: translateY(-50%);
     max-width: 50px;
+}
+
+@media (max-width: 768px) {
+    #logo {
+        width: 60%;
+        transition: width 0.5s ease;
+    }
+
+    .headline-icon {
+        max-width: 30px;
+        right: -30px;
+    }
 }
