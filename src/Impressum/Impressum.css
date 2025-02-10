@@ -1,10 +1,11 @@
 #impressum-container {
     text-align: center;
-    background-color: #800020;
+    border-top: 3px solid #800020;
+    background-color: #f8dfb7;
     margin-top: 30px;
     padding-top: 10px;
     padding-bottom: 20px;
-    text-shadow: #F7E7CE 0px 0px 10px;
+    text-shadow: #800020 0px 0px 1px;
     font-weight: bold;
 }
 

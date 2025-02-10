@@ -13,6 +13,13 @@ import JazzStandards from "./Genres/JazzStandards/JazzStandards";
 import LatinJazz from "./Genres/LatinJazz/LatinJazz";
 
 
+/*
+<div id="headline">
+    <div id="headline-groß">NICK&FRIENDS</div>
+    <div id="headline-klein">JAZZTRIO</div>
+</div>
+*/
+
 function App() {
   return (
       <div id="main-container">

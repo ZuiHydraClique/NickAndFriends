@@ -1,6 +1,55 @@
+@font-face {
+    font-family: 'Quicksand';
+    src: url('./styles/Fonts/Quicksand_Book.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Quicksand Bold';
+    src: url('./styles/Fonts/Quicksand_Bold.otf') format('opentype');
+}
+
+
+
+
+
+
+
+
+#headline-groß {
+    font-size: 60px;
+    letter-spacing: 7px;
+}
+
+#headline-klein {
+    font-size: 32px;
+    letter-spacing: 6px;
+}
+
+#headline {
+    width: 100%;
+    text-align: center;
+    font-family: 'Quicksand Bold';
+    margin-bottom: 100px;
+    filter: drop-shadow(0px 0px 2px #800020);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #main-container {
     background-color: #F7E7CE;
-    font-family: "Roboto Light", serif;
+    font-family: 'Quicksand';
     width: 100%;
 }
 
@@ -16,7 +65,7 @@
     height: auto;
     top: 5%;
     left: 35%;
-    filter: drop-shadow(0px 0px 3px #800020);
+    filter: drop-shadow(0px 0px 2px #800020);
     transition: width 0.5s ease;
 }
 
