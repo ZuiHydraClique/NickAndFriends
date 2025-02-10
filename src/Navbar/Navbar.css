@@ -78,13 +78,8 @@
     width: 100%;
     background: #800020;
     border-radius: 2px;
-  }
-
-  .hamburger:hover{
     transition: all 0.2s ease;
-    filter: drop-shadow(1px 1px 2px #00000088);
   }
-  
   /* Menü */
   .menu {
     display: flex;
@@ -118,14 +113,17 @@
   
     .hamburger.open span:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
+        transition: all 0.2s ease;
       }
       
       .hamburger.open span:nth-child(2) {
         opacity: 0;
+        transition: all 0.2s ease;
       }
       
       .hamburger.open span:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
+        transition: all 0.2s ease;
       }
 
     /* Navbar Content */
