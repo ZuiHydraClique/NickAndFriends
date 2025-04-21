@@ -1,5 +1,6 @@
 .accordion-button {
-    color: #333333;
+    color: #333333; 
+    background-color: #F7E7CE;
 }
 
 .accordion-button.collapsed {
@@ -40,6 +41,17 @@
 
 .accordion-item {
     --bs-accordion-btn-focus-box-shadow: none;
+}
+
+/*
+.accordion-button:after {
+    --bs-accordion-btn-icon: url('../pictures/Akkordeonpfeile/musiknote_zu.png');
+    --bs-accordion-btn-active-icon: url('../pictures/Akkordeonpfeile/musiknote_offen.png');
+}
+*/
+.accordion-button:after {
+    --bs-accordion-btn-icon: url('../pictures/Akkordeonpfeile/pfeil_zu.png');
+    --bs-accordion-btn-active-icon: url('../pictures/Akkordeonpfeile/pfeil_offen.png');
 }
 
 @media (max-width: 768px) {

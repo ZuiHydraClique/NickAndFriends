@@ -33,6 +33,14 @@
     cursor: pointer;
 }
 
+.song-card.selected {
+    background-color: #800020;
+    text-shadow: #F7E7CE 0 0 8px;
+    transition: ease 0.3s;
+    color: #F7E7CE;
+    cursor: pointer;
+}
+
 @media (max-width: 768px) { 
     
     .song-card {

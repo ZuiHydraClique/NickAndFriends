@@ -11,7 +11,7 @@ import Logo from './pictures/Mitglieder/LOGO_N&F.png'
 import React from "react";
 import JazzStandards from "./Genres/JazzStandards/JazzStandards";
 import LatinJazz from "./Genres/LatinJazz/LatinJazz";
-
+import { SongProvider  } from './SongContext.js';
 
 /*
 <div id="headline">
@@ -22,6 +22,7 @@ import LatinJazz from "./Genres/LatinJazz/LatinJazz";
 
 function App() {
   return (
+    <SongProvider>
       <div id="main-container">
           <div id="logo-container">
               <img src={Logo} id="logo" alt="NickAndFriends"/>
@@ -40,6 +41,7 @@ function App() {
           <div id="faqs"><FAQ /></div>
           <div><Impressum /></div>
       </div>
+    </SongProvider>
   );
 }
 
