@@ -1,0 +1,19 @@
+
+ToDo:
+- bei Hamburger die Songliste einklappen
+- Formular schöner machen
+- "Nachricht erfolgreich versendet" schöner und entfernen
+
+DONE:
+!!! nur der Name und die Email ist ein Pflichtfeld
+- Nachricht eingebbar beim kontakt (kein Pflichtfeld)
+- Datum / Uhrzeit von-bis / Anlass / Ort / PLZ / Straße, Hnr / Dauer
+- remove all Button
+- Songs aus Liste in Kontaktformular entfernbar machen
+- schönere Liste machen / Songliste responsivness anpassen
+
+
+
+BACKLOG:
+- Logo Vektorgrafik (in Logo und Schrift aufsplitten)
+

@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './PopRockClassic.css'; // Stile für diese Komponente
 import '../../styles/flex.css';
 import Icon from "../../pictures/Sektionen/Genres/Pop_Rock-Classics.png"; // Gemeinsame Flex-Stile
 import { SongContext } from '../../SongContext.js';
 
 const PopRockClassic = () => {
-    const { addSong, removeSong } = useContext(SongContext);
+    const { addSong, removeSong, registerRemoveCallback } = useContext(SongContext);
     const [selectedCards, setSelectedCards] = useState([]);
 
     const songs = [
@@ -30,6 +30,17 @@ const PopRockClassic = () => {
         { title: 'Walk On The Wild Side', artist: 'Lou Reed' },
         { title: 'Zieh die Schuh aus', artist: 'Roger Cicero' }
     ];
+
+    useEffect(() => {
+        // Registriere einen Callback, um den lokalen Zustand zu aktualisieren
+        const handleRemoveSong = (removedSong) => {
+            setSelectedCards((prev) =>
+                prev.filter((index) => songs[index]?.title !== removedSong.title)
+            );
+        };
+
+        registerRemoveCallback(handleRemoveSong);
+    }, [registerRemoveCallback, songs]);
 
     const handleCardClick = (song, index) => {
         if (selectedCards.includes(index)) {

@@ -15,16 +15,22 @@
 
 #song-list {
     padding-top: 30px;
-    padding-bottom: 10px;
     display: flex;
     flex-direction: column;
     font-size: 14px;
 }
 
+.song-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid #800020;
+}
+
 #song-list-amount {
     font-weight: bold;
-    color: #800020;
-    padding-bottom: 10px;
+    color: #333333;
     text-align: left;
 }
 
@@ -33,6 +39,69 @@
     font-weight: bold;
     width: 100%;
     text-align: center;
+}
+
+.first-layer-form {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.second-layer-form {
+    width: 100%; 
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+.date-input {
+    width: 50%;
+}
+
+.uhrzeit-input {
+    width: 100%;
+    border-radius: 5px;
+    border: 3px solid #800020;
+}
+
+.uhrzeit-responsive-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 45%;
+    text-align: center;
+}
+
+.uhrzeit-wrapper {
+    width: 50%;
+}
+
+.ort-wrapper {
+    width: 75%;
+}
+
+.plz-wrapper {
+    width: 25%;
+}
+ 
+.strasse-wrapper {
+    width: 90%;
+}
+
+.hausnummer-wrapper {
+    width: 10%;
+}
+
+input {
+    border-radius: 5px;
+    border: 3px solid #800020;
+}
+
+textarea {
+    border-radius: 5px;
+    border: 3px solid #800020;
 }
 
 #submit-button {
@@ -58,16 +127,19 @@
 #submit-button-container {
     display: flex;
     justify-content: flex-end;
+    margin-top: 10px;
 }
 
-input {
+.success-message {
+    width: 100%;
+    text-align: center;
+    background-color: #2c9602;
+    text-shadow: #333333 0 0 3px;
+    font-weight: bold;
+    color: #F7E7CE;
+    padding: 10px;
+    margin-top: 20px;
     border-radius: 5px;
-    border: 3px solid #800020;
-}
-
-textarea {
-    border-radius: 5px;
-    border: 3px solid #800020;
 }
 
 #error-notification {
@@ -77,7 +149,95 @@ textarea {
     border-radius: 5px;
     text-shadow: #F7E7CE 0 0 2px;
     text-align: center;
+    margin-top: 20px;
     padding: 10px;
+}
+
+.remove-song-button {
+    margin-left: 10px;
+    background-color: #800020;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.remove-song-button:hover {
+    background-color: #a0002a;
+}
+
+.remove-all-songs-button {
+    margin-bottom: 10px;
+    margin-top: 20px;
+    background: #800020; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 5px 10px; 
+    cursor: pointer;
+}
+
+.remove-song-button-small {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-song-img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+#bubble-title {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.bubble-line {
+    width: 100%;
+    height: 1px;
+    background-color: #800020; /* Rote Linie */
+    margin: 10px 0;
+}
+
+#song-title-big {
+    font-weight: bold;
+    font-size: 22px;
+    text-align: start;
+    color: #800020;
+}
+
+.song-title-small {
+    font-weight: bold;
+    font-size: 16px;
+    text-align: start;
+    color: #800020;
+}
+
+.song-artist-small {
+    text-align: start;
+}
+
+.bubble-song-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.bubble-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .bubble-container {
@@ -119,7 +279,7 @@ textarea {
     border-radius: 10px;
     padding: 15px;
     width: 300px;
-    max-height: 200px;
+    max-height: 400px;
     overflow-y: auto;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     animation: bubble-open 0.3s ease-out;
@@ -177,5 +337,112 @@ textarea {
     .bubble-container {
         bottom: 10px;
         right: 10px;
+    }
+
+    .song-list-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 50px;
+        border-bottom: 1px solid #800020;
+        position: relative; /* Wichtig für die absolute Positionierung des Buttons */
+    }
+
+    .remove-song-button {
+        margin-left: 0;
+        margin-top: 60px;
+        margin-right: 0;
+        position: absolute;
+        right: 0;
+        bottom: 30;
+    }
+
+
+}
+
+.error-tooltip-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 8px;
+    vertical-align: middle;
+    
+}
+
+.error-dot {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: #800020;
+    border-radius: 50%;
+    border: 2px solid #535353;
+    box-shadow: 0 0 2px #800020;
+    cursor: pointer;
+}
+
+.error-tooltip {
+    visibility: hidden;
+    opacity: 0;
+    width: max-content;
+    max-width: 270px;
+    background-color: white;
+    border: 2px solid #800020;
+    color: #800020;
+    font-weight: bold;
+    text-align: left;
+    border-radius: 6px;
+    padding: 8px 12px;
+    position: absolute;
+    z-index: 10;
+    left: -100px;
+    top: -80%;
+    transform: translateY(-50%);
+    transition: opacity 0.2s;
+    font-size: 13px;
+    pointer-events: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.error-tooltip-wrapper:hover .error-tooltip,
+.error-tooltip-wrapper:focus-within .error-tooltip {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+@media (max-width: 1340px) {
+    .error-tooltip {
+        left: -50px; /* Passen Sie die Position für kleinere Bildschirme an */
+        top: -70%;
+    }
+
+    .first-layer-form {
+            flex-direction: column; /* Ändern Sie die Richtung für kleinere Bildschirme */
+    }
+
+    .date-input {
+        width: 100%;
+    } 
+
+    .uhrzeit-responsive-wrapper {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .ort-wrapper {
+        width: 100%;
+    }
+
+    .plz-wrapper {
+        width: 100%;
+    }
+
+    .strasse-wrapper {
+        width: 100%;
+    }
+
+    .hausnummer-wrapper {
+        width: 100%;
     }
 }
