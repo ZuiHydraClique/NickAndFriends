@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './JazzStandards.css'; // Stile für diese Komponente
 import '../../styles/flex.css';
 import Icon from "../../pictures/Sektionen/Genres/Jazz Standards.png"; // Gemeinsame Flex-Stile
 import { SongContext } from '../../SongContext.js';
 
 const JazzStandards = () => {
-    const { addSong, removeSong } = useContext(SongContext);
+    const { addSong, removeSong, registerRemoveCallback } = useContext(SongContext);
     const [selectedCards, setSelectedCards] = useState([]);
 
     const songs = [
@@ -23,6 +23,17 @@ const JazzStandards = () => {
         { title: 'Summertime', artist: 'George Gershwin' },
         { title: 'The Nearness Of You', artist: 'Jazz-Standard' }
     ];
+
+    useEffect(() => {
+        // Registriere einen Callback, um den lokalen Zustand zu aktualisieren
+        const handleRemoveSong = (removedSong) => {
+            setSelectedCards((prev) =>
+                prev.filter((index) => songs[index]?.title !== removedSong.title)
+            );
+        };
+
+        registerRemoveCallback(handleRemoveSong);
+    }, [registerRemoveCallback, songs]);
 
     const handleCardClick = (song, index) => {
         if (selectedCards.includes(index)) {

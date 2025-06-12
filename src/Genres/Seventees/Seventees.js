@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Seventees.css';
 import '../../styles/flex.css';
 import '../../styles/songcard.css';
@@ -7,7 +7,7 @@ import { SongContext } from '../../SongContext.js';
 
 const Seventees = () => {
 
-    const { addSong, removeSong } = useContext(SongContext);
+    const { addSong, removeSong, registerRemoveCallback } = useContext(SongContext);
     const [selectedCards, setSelectedCards] = useState([]);
     
 
@@ -23,6 +23,17 @@ const Seventees = () => {
         { title: 'Sunny', artist: 'Boney M.' },
         { title: 'The Long And Winding Road', artist: 'The Beatles' }
     ];
+
+    useEffect(() => {
+        // Registriere einen Callback, um den lokalen Zustand zu aktualisieren
+        const handleRemoveSong = (removedSong) => {
+            setSelectedCards((prev) =>
+                prev.filter((index) => songs[index]?.title !== removedSong.title)
+            );
+        };
+
+        registerRemoveCallback(handleRemoveSong);
+    }, [registerRemoveCallback, songs]);
 
     const handleCardClick = (song, index) => {
         if (selectedCards.includes(index)) {
