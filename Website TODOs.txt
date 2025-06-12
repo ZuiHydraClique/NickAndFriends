@@ -1,6 +1,5 @@
 
 ToDo:
-- bei Hamburger die Songliste einklappen
 
 DONE:
 !!! nur der Name und die Email ist ein Pflichtfeld
@@ -11,7 +10,8 @@ DONE:
 - schönere Liste machen / Songliste responsivness anpassen
 - Formular schöner machen
 - "Nachricht erfolgreich versendet" schöner und entfernen
-
+- bei Hamburger die Songliste einklappen
+redeploy
 
 
 BACKLOG:
