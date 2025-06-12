@@ -8,6 +8,10 @@ const Navbar = () => {
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
+    if (!isOpen) {
+      // Hamburger wird geöffnet, Bubble schließen
+      window.dispatchEvent(new Event("closeBubble"));
+    }
   };
 
   const scrollToSection = (id) => {

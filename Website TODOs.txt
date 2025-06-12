@@ -1,8 +1,6 @@
 
 ToDo:
 - bei Hamburger die Songliste einklappen
-- Formular schöner machen
-- "Nachricht erfolgreich versendet" schöner und entfernen
 
 DONE:
 !!! nur der Name und die Email ist ein Pflichtfeld
@@ -11,6 +9,8 @@ DONE:
 - remove all Button
 - Songs aus Liste in Kontaktformular entfernbar machen
 - schönere Liste machen / Songliste responsivness anpassen
+- Formular schöner machen
+- "Nachricht erfolgreich versendet" schöner und entfernen
 
 
 

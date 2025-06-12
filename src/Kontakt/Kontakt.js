@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import emailjs from 'emailjs-com'; // EmailJS importieren
 import './Kontakt.css'; // Stile für diese Komponente
 import '../styles/flex.css';
@@ -154,6 +154,12 @@ const Kontakt = () => {
             setIsBubbleOpen(true);
         }
     };
+
+    useEffect(() => {
+    const closeBubbleHandler = () => setIsBubbleOpen(false);
+    window.addEventListener("closeBubble", closeBubbleHandler);
+    return () => window.removeEventListener("closeBubble", closeBubbleHandler);
+    }, []);
 
     // für Datumsselektor
     const today = new Date();
