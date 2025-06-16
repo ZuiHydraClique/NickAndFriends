@@ -414,8 +414,8 @@ textarea {
 
 @media (max-width: 1340px) {
     .error-tooltip {
-        left: -50px; /* Passen Sie die Position für kleinere Bildschirme an */
-        top: -70%;
+        left: -20%;
+        top: -100%;
     }
 
     .first-layer-form {
