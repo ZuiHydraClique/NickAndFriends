@@ -240,7 +240,6 @@ const Kontakt = () => {
                                                 placeholder="Uhrzeit bis" 
                                                 value={formData.uhrzeitbis} 
                                                 onChange={handleChange} />
-                                                
                                         </div>
                                     </div>
                                 </div>
@@ -387,22 +386,23 @@ const Kontakt = () => {
                         <ul className="bubble-list">
                             {selectedSongs.length > 0 ? (
                                 selectedSongs.map((song, index) => (
-                                    <li key={index}>
-                                        <div className="bubble-line"></div>
-                                        <div className="bubble-list-item">
-                                            <div className="bubble-song-info">
-                                                <div className="song-title-small">{song.title}</div>
-                                                <div className="song-artist-small">{song.artist}</div>
+                                        <li key={index}>
+                                            <div className="bubble-line"></div>
+                                            <div className="bubble-list-item">
+                                                <div className="bubble-song-info">
+                                                    <div className="song-title-small">{song.title}</div>
+                                                    <div className="song-artist-small">{song.artist}</div>
+                                                </div>
+                                                <button
+                                                    className="remove-song-button-small"
+                                                    onClick={() => removeSong(song)}
+                                                >
+                                                    <img src={entfernenButton} alt="Entfernen" className="remove-song-img" />
+                                                </button>
                                             </div>
-                                            <button
-                                                className="remove-song-button-small"
-                                                onClick={() => removeSong(song)}
-                                            >
-                                                <img src={entfernenButton} alt="Entfernen" className="remove-song-img" />
-                                            </button>
-                                        </div>
-                                    </li>
+                                        </li>
                                 ))
+                                
                             ) : (
                                 <>
                                     <div className="bubble-line"></div>
@@ -411,6 +411,17 @@ const Kontakt = () => {
                             )}
                         </ul>
                         <div className="bubble-line"></div>
+                        {selectedSongs.length > 0 ? (
+                            <button
+                                className="remove-all-songs-button"
+                                type="button"
+                                onClick={clearSongs}
+                            >
+                                Alle Songs entfernen
+                            </button>
+                        ) : (
+                            <div></div>
+                        )}
                     </div>
                 )}
             </div>

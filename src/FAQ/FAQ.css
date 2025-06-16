@@ -32,6 +32,7 @@
 .accordion {
     width: 100%;
     --bs-accordion-border-color: #800020;
+    border-bottom: 0.1px solid #800020;
 }
 
 .accordion-container {

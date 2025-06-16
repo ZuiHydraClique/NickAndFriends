@@ -7,16 +7,11 @@ import Icon from "../pictures/Sektionen/FAQ.png";
 
 const FAQ = () => {
     const items = [
-        { title: 'Wie lange dauert ein Auftritt?', content: 'In der Regel 3 Stunden.' },
-        { title: 'Kann man Songwünsche äußern?', content: 'Ja, gerne im Voraus mitteilen.' },
-        { title: 'Wie viel kostet ein Auftritt?', content: 'Preise variieren je nach Dauer und Ort.' },
-        { title: 'Spielt ihr auch im Ausland?', content: 'Ja, aber zusätzliche Reisekosten fallen an.' },
-        { title: 'Ist eine Anzahlung erforderlich?', content: 'Ja, 30% im Voraus.' },
-        { title: 'Wie lange im Voraus sollte man buchen?', content: 'Mindestens 3 Monate.' },
-        { title: 'Kann man euch vorher live sehen?', content: 'Ja, bei öffentlichen Events möglich.' },
+        { title: 'Wie lange dauert ein Auftritt?', content: '0,5 bis 4 Stunden. Kürzere oder längere Auftritte sind nach Abstimmung auch möglich.' },
+        { title: 'Wie lange im Voraus sollte man buchen?', content: 'Im besten Fall bitte mindestens 2 Monate vorher. Kurzfristigere Anfragen sind aber ebenso möglich.' },
+        { title: 'Spielt ihr auch auf Firmenfeiern?', content: 'Ja, sehr gerne. Wir sind flexibel bei der Art des Events. Wir haben zudem Weihnachtslieder im Repertoire.' },
         { title: 'Habt ihr eine eigene Soundanlage?', content: 'Ja, wir bringen unsere eigene Ausrüstung mit.' },
-        { title: 'Spielt ihr auch auf Firmenfeiern?', content: 'Ja, wir sind flexibel bei der Art des Events.' },
-        { title: 'Gibt es eine Mindestbuchungsdauer?', content: 'Ja, die Mindestbuchungsdauer beträgt 2 Stunden.' },
+        { title: 'Kann man euch vorher live sehen?', content: 'Leider nicht, aber Sie können sich unseren Teaser hier anhören.' }
     ];
 
     return (

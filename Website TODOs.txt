@@ -1,5 +1,14 @@
 
 ToDo:
+- Callback in Alle Entfernen hinzufügen
+- 14 Tage auswählbar
+- Bis mit Dauer ersetzen (Start; von 0,5 Std bis 4 Std 0,5er Schritten)
+- Gruppierte Sektionen in KOntaktBox
+- Nur Nachricht unten Placeholder: (Anlass, Wünsche, …)
+- alphabetische Sortierung der Songliste
+- mindestens 3 Songs rausnehmen
+- HandleChange bisschen besser machen
+- demosong reinpacken
 
 DONE:
 !!! nur der Name und die Email ist ein Pflichtfeld
