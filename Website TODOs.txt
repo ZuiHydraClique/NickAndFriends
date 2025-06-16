@@ -1,6 +1,5 @@
 
 ToDo:
-- Fehler bei Datum verschieben
 
 DONE:
 !!! nur der Name und die Email ist ein Pflichtfeld
@@ -12,7 +11,7 @@ DONE:
 - Formular schöner machen
 - "Nachricht erfolgreich versendet" schöner und entfernen
 - bei Hamburger die Songliste einklappen
-redeploy
+- Fehler bei Uhrzeit verschieben
 
 
 BACKLOG:

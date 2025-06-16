@@ -404,7 +404,10 @@ const Kontakt = () => {
                                     </li>
                                 ))
                             ) : (
-                                <li>keine Songs ausgewählt</li>
+                                <>
+                                    <div className="bubble-line"></div>
+                                    <li>keine Songs ausgewählt</li>
+                                </>
                             )}
                         </ul>
                         <div className="bubble-line"></div>

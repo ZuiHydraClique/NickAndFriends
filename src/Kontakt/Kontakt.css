@@ -365,10 +365,10 @@ textarea {
 .error-tooltip-wrapper {
     position: relative;
     display: inline-block;
-    margin-top: 5px;
-    margin-left: 8px;
+    margin-top: 13px;
+    margin-left: -17px;
+    padding-right: 3px;
     vertical-align: middle;
-    
 }
 
 .error-dot {
