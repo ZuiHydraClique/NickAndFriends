@@ -13,13 +13,11 @@ const Kontakt = () => {
         email: '',
         datum: '',
         uhrzeitvon: '',
-        uhrzeitbis: '',
-        anlass: '',
+        dauer: '',
         ort: '',
         plz: '',
         strasse: '',
         hausnummer: '',
-        dauer: '',
         nachricht: ''
     });
 
@@ -42,11 +40,6 @@ const Kontakt = () => {
             newErrors.email = !/\S+@\S+\.\S+/.test(value);
         } else if (name === 'name') {
             newErrors[name] = value.trim() === '';
-        } else if (name === 'uhrzeitbis' || name === 'uhrzeitvon') {
-            // Uhrzeiten vergleichen, wenn 'uhrzeitbis' oder 'uhrzeitvon' geändert wird
-            const von = updatedFormData.uhrzeitvon;
-            const bis = updatedFormData.uhrzeitbis;
-            newErrors.uhrzeitbis = !!(von && bis && bis <= von);
         }
         setErrors(newErrors);
 
@@ -59,23 +52,14 @@ const Kontakt = () => {
         e.preventDefault();
     
         // Überprüfen, ob mindestens 3 Songs ausgewählt sind
-        if (selectedSongs.length < 3) {
-            setShowNotification(true); // Fehlermeldung anzeigen
-            return;
-        }
+        //if (selectedSongs.length < 3) {
+        //    setShowNotification(true); // Fehlermeldung anzeigen
+        //    return;
+        //}
     
         let newErrors = {};
         newErrors.email = !/\S+@\S+\.\S+/.test(formData.email);
         newErrors.name = formData.name.trim() === '';
-
-        // Uhrzeiten vergleichen
-        if (formData.uhrzeitvon && formData.uhrzeitbis) {
-            const von = formData.uhrzeitvon;
-            const bis = formData.uhrzeitbis;
-            if (bis <= von) {
-                newErrors.uhrzeitbis = true;
-            }
-        }
 
         setErrors(newErrors);
 
@@ -95,27 +79,23 @@ const Kontakt = () => {
                 email: formData.email,
                 datum: formData.datum,
                 uhrzeitvon: formData.uhrzeitvon,
-                uhrzeitbis: formData.uhrzeitbis,
-                anlass: formData.anlass,
+                dauer: formData.dauer,
                 ort: formData.ort,
                 plz: formData.plz,
                 strasse: formData.strasse,
                 hausnummer: formData.hausnummer,
-                dauer: formData.dauer,
                 message:
                     `Ausgewählte Songs:\n${songList}\n\n` +
                     `Datum: ${formData.datum}\n` +
                     `Uhrzeit Von: ${formData.uhrzeitvon}\n` +
-                    `Uhrzeit Bis: ${formData.uhrzeitbis}\n` +
-                    `Anlass: ${formData.anlass}\n` +
+                    `Dauer: ${formData.dauer} Std.` +
                     `Ort: ${formData.ort}\n` +
                     `PLZ: ${formData.plz}\n` +
-                    `Straße: ${formData.strasse}\n` +
-                    `Hausnummer: ${formData.hausnummer}\n` +
-                    `Dauer: ${formData.dauer}` +
+                    `Straße: ${formData.strasse} ${formData.hausnummer}\n` +
                     (formData.message ? `\n\nNachricht: ${formData.message}` : '')
             };
     
+            console.log('E-Mail-Daten:', emailData); // Debugging-Ausgabe
 
             emailjs
                 .send(
@@ -163,150 +143,166 @@ const Kontakt = () => {
 
     // für Datumsselektor
     const today = new Date();
+    today.setDate(today.getDate() + 14);
     const yyyy = today.getFullYear();
     const mm = String(today.getMonth() + 1).padStart(2, '0');
-    const dd = String(today.getDate() + 7).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
     const minDate = `${yyyy}-${mm}-${dd}`;
 
     return (
         <div className="section-container">
             <div className="headline flex-row">
-                <h1>Kontakt</h1>
+                <h1>Anfrage</h1>
                 <img src={Icon} className="headline-icon" alt="icon" />
             </div>
             <div className="flex-row center-all">
                 <div id="kontakt-box">
+
+
                     <form onSubmit={handleSubmit}>
-                        <div id="mail-name-container">
-
-                            <div className="flex-column">
-                                <input 
-                                    type="text" 
-                                    name="name" 
-                                    placeholder="Name (Pflichtfeld)" 
-                                    value={formData.name} 
-                                    onChange={handleChange} />
-                                    {errors.name && <span className="error">Name ist erforderlich.</span>}
-                            </div>
-
-                            <div className="flex-column">
-                                <input 
-                                    type="text" 
-                                    name="email" 
-                                    placeholder="Email (Pflichtfeld)" 
-                                    value={formData.email} 
-                                    onChange={handleChange} />
-                                    {errors.email && <span className="error">Email ist erforderlich.</span>}
-                            </div>
 
 
-        	                <div className="first-layer-form">
-                                
-                                <div className="flex-column date-input">
+                        <div id="main-input-container">
+                            
+                            <div className="group-container">
+                                <h4>Kontaktdaten</h4>
+                                <div className="flex-column">
                                     <input 
-                                        min={minDate} 
-                                        type="date" 
-                                        name="datum" 
-                                        placeholder="Datum" 
-                                        value={formData.datum} 
+                                        type="text" 
+                                        name="name" 
+                                        placeholder="Name (Pflichtfeld)" 
+                                        value={formData.name} 
                                         onChange={handleChange} />
+                                        {errors.name && <span className="error">Name ist erforderlich!</span>}
                                 </div>
 
-                                <div className="uhrzeit-responsive-wrapper">
-                                    {errors.uhrzeitbis && (
-                                        <span className="error-tooltip-wrapper">
-                                            <span className="error-dot" />
-                                            <span className="error-tooltip">
-                                                Bitte korrigieren Sie die Uhrzeit!
+                                <div className="flex-column">
+                                    <input 
+                                        type="text" 
+                                        name="email" 
+                                        placeholder="Email (Pflichtfeld)" 
+                                        value={formData.email} 
+                                        onChange={handleChange} />
+                                        {errors.email && (
+                                            <span className="error">
+                                                {formData.email === ''
+                                                ? 'Email ist erforderlich!'
+                                                : 'Email ist ungültig!'}
                                             </span>
-                                        </span>
-                                    )}
-                                    <div className="second-layer-form">
-                                        <div className="flex-column uhrzeit-wrapper">
-                                            <input 
-                                                type="time" 
-                                                className="uhrzeit-input"
-                                                name="uhrzeitvon" 
-                                                placeholder="Uhrzeit von" 
-                                                value={formData.uhrzeitvon} 
-                                                onChange={handleChange} />
-                                        </div>
-                                        <div className="flex-column uhrzeit-wrapper">
-                                            <input 
-                                                type="time" 
-                                                className="uhrzeit-input"
-                                                name="uhrzeitbis" 
-                                                min={formData.uhrzeitvon} 
-                                                placeholder="Uhrzeit bis" 
-                                                value={formData.uhrzeitbis} 
-                                                onChange={handleChange} />
+                                        )}
+                                </div>
+                            </div>
+                            
+
+
+                            
+                            <div className="group-container">
+                                <h4>Zeitpunkt</h4>
+                                <div className="first-layer-form">
+                                    
+                                    <div className="flex-column date-input">
+                                        <input 
+                                            min={minDate} 
+                                            type="date" 
+                                            name="datum" 
+                                            placeholder="Datum" 
+                                            value={formData.datum} 
+                                            onChange={handleChange} />
+                                    </div>
+
+                                    <div className="uhrzeit-responsive-wrapper">
+                                        {errors.uhrzeitbis && (
+                                            <span className="error-tooltip-wrapper">
+                                                <span className="error-dot" />
+                                                <span className="error-tooltip">
+                                                    Bitte korrigieren Sie die Uhrzeit!
+                                                </span>
+                                            </span>
+                                        )}
+                                        <div className="second-layer-form">
+                                            <div className="flex-column uhrzeit-wrapper">
+                                                <input 
+                                                    type="time" 
+                                                    className="uhrzeit-input"
+                                                    name="uhrzeitvon" 
+                                                    placeholder="Uhrzeit von" 
+                                                    value={formData.uhrzeitvon} 
+                                                    onChange={handleChange} />
+                                            </div>
+
+                                            <select
+                                                name="dauer"
+                                                value={formData.dauer}
+                                                onChange={handleChange}
+                                                placeholder="Dauer"
+                                                id="dauer-select"
+                                            >
+                                                <option value="" disabled>Dauer</option>
+                                                <option value="0.5">0.5  Stunde</option>
+                                                <option value="1">1  Stunde</option>
+                                                <option value="1.5">1.5  Stunden</option>
+                                                <option value="2">2  Stunden</option>
+                                                <option value="2.5">2.5  Stunden</option>
+                                                <option value="3">3  Stunden</option>
+                                                <option value="3.5">3.5  Stunden</option>
+                                                <option value="4">4  Stunden</option>
+                                                <option value="4.5">4.5  Stunden</option>
+                                                <option value="5">5  Stunden</option>
+                                                <option value="5.5">5.5  Stunden</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
+                            
+                            <div className="group-container">
+                                <h4>Adresse</h4>
+                                <div className="first-layer-form">
+                                    <div className="flex-column ort-wrapper">
+                                        <input 
+                                            type="text" 
+                                            name="ort" 
+                                            placeholder="Ort" 
+                                            value={formData.ort} 
+                                            onChange={handleChange} />
+                                    </div>
+                                    <div className="flex-column plz-wrapper">
+                                        <input 
+                                            type="text" 
+                                            name="plz" 
+                                            placeholder="PLZ" 
+                                            value={formData.plz} 
+                                            onChange={handleChange} />
+                                    </div>
+                                </div>
 
+                                <div className="first-layer-form">
+                                    <div className="flex-column strasse-wrapper">
+                                        <input 
+                                            type="text" 
+                                            name="strasse" 
+                                            placeholder="Straße" 
+                                            value={formData.strasse} 
+                                            onChange={handleChange} />
+                                    </div>
+                                    <div className="flex-column hausnummer-wrapper">
+                                        <input 
+                                            type="text" 
+                                            name="hausnummer" 
+                                            placeholder="HNr." 
+                                            value={formData.hausnummer} 
+                                            onChange={handleChange} />
+                                    </div>
+                                </div>
+                            </div>
 
                             <div className="flex-column">
-                                <textarea 
-                                    type="text" 
-                                    name="anlass" 
-                                    placeholder="Anlass" 
-                                    value={formData.anlass} 
-                                    onChange={handleChange} />
-                            </div>
-
-                            <div className="first-layer-form">
-                                <div className="flex-column ort-wrapper">
-                                    <input 
-                                        type="text" 
-                                        name="ort" 
-                                        placeholder="Ort" 
-                                        value={formData.ort} 
-                                        onChange={handleChange} />
-                                </div>
-                                <div className="flex-column plz-wrapper">
-                                    <input 
-                                        type="text" 
-                                        name="plz" 
-                                        placeholder="PLZ" 
-                                        value={formData.plz} 
-                                        onChange={handleChange} />
-                                </div>
-                            </div>
-
-                            <div className="first-layer-form">
-                                <div className="flex-column strasse-wrapper">
-                                    <input 
-                                        type="text" 
-                                        name="strasse" 
-                                        placeholder="Straße" 
-                                        value={formData.strasse} 
-                                        onChange={handleChange} />
-                                </div>
-                                <div className="flex-column hausnummer-wrapper">
-                                    <input 
-                                        type="text" 
-                                        name="hausnummer" 
-                                        placeholder="HNr." 
-                                        value={formData.hausnummer} 
-                                        onChange={handleChange} />
-                                </div>
-                            </div>
-
-
-                            <div className="flex-column">
-                                <input 
-                                    type="text" 
-                                    name="dauer" 
-                                    placeholder="Dauer" 
-                                    value={formData.dauer} 
-                                    onChange={handleChange} />
-                            </div>
-                            <div className="flex-column">
+                                <h4>Nachricht</h4>
                                 <textarea
+                                    style={{marginTop: '20px'}}
                                     name="nachricht"
-                                    placeholder="Nachricht"
+                                    placeholder="Anlass, Wünsche, ..."
                                     value={formData.nachricht}
                                     onChange={handleChange}
                                     rows={4}
@@ -361,9 +357,10 @@ const Kontakt = () => {
 
                     {showNotification && !isSent && (
                         <p id="error-notification">
-                            {selectedSongs.length < 3
-                                ? 'Bitte wählen Sie mindestens 3 Songs aus, bevor Sie das Formular absenden.'
-                                : 'Bitte überprüfen Sie Ihre Angaben, bevor Sie das Formular absenden. Alle Felder müssen ausgefüllt sein.'}
+                            {/*{selectedSongs.length < 3
+                                ? 'Bitte wählen Sie mindestens 3 Songs aus, bevor Sie das Formular absenden.'*/}
+                                Bitte überprüfen Sie Ihre Angaben, bevor Sie das Formular absenden.<br/>
+                                Alle Felder müssen ausgefüllt sein.
                         </p>
                     )}
                 </div>

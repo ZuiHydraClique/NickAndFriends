@@ -5,10 +5,10 @@ import Icon from "../../pictures/Sektionen/Genres/Jazz Standards.png"; // Gemein
 import { SongContext } from '../../SongContext.js';
 
 const JazzStandards = () => {
-    const { addSong, removeSong, registerRemoveCallback } = useContext(SongContext);
+    const { addSong, removeSong, clearSongs, registerRemoveCallback } = useContext(SongContext);
     const [selectedCards, setSelectedCards] = useState([]);
 
-    const songs = [
+    const songs = React.useMemo(() => [
         { title: 'Alice in Wonderland', artist: 'Jazz-Standard' },
         { title: 'All of Me', artist: 'Jazz-Standard' },
         { title: 'Ceora', artist: 'Jazz-Standard' },
@@ -22,17 +22,19 @@ const JazzStandards = () => {
         { title: 'Someday My Prince Will Come', artist: 'Jazz-Standard' },
         { title: 'Summertime', artist: 'George Gershwin' },
         { title: 'The Nearness Of You', artist: 'Jazz-Standard' }
-    ];
+    ], []);
 
     useEffect(() => {
-        // Registriere einen Callback, um den lokalen Zustand zu aktualisieren
-        const handleRemoveSong = (removedSong) => {
-            setSelectedCards((prev) =>
-                prev.filter((index) => songs[index]?.title !== removedSong.title)
-            );
+    const handleRemove = (song) => {
+            if (song.title === '__ALL__') {
+                setSelectedCards([]); // Alles abwählen
+            } else {
+                setSelectedCards((prev) =>
+                    prev.filter((index) => songs[index]?.title !== song.title)
+                );
+            }
         };
-
-        registerRemoveCallback(handleRemoveSong);
+        registerRemoveCallback(handleRemove);
     }, [registerRemoveCallback, songs]);
 
     const handleCardClick = (song, index) => {
@@ -51,7 +53,7 @@ const JazzStandards = () => {
         <div className="section-container">
             <div className="headline flex-row">
                 <h1>Jazz Standards</h1>
-                <img src={Icon} className="headline-icon"/>
+                <img src={Icon} className="headline-icon" alt=""/>
             </div>
             <div className="song-card-container">
                 {songs.map((song, index) => (

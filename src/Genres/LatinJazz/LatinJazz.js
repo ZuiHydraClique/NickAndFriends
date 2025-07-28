@@ -5,24 +5,26 @@ import Icon from "../../pictures/Sektionen/Genres/LatinJazz.png"; // Gemeinsame 
 import { SongContext } from '../../SongContext.js';
 
 const LatinJazz = () => {
-    const { addSong, removeSong, registerRemoveCallback } = useContext(SongContext);
+    const { addSong, removeSong, clearSongs, registerRemoveCallback } = useContext(SongContext);
     const [selectedCards, setSelectedCards] = useState([]);
 
-    const songs = [
+    const songs = React.useMemo(() => [
         { title: 'Desafinado', artist: 'Jazz-Standard' },
         { title: 'Wave', artist: 'Antônio Carlos Jobim' },
         { title: 'Girl From Ipanema', artist: 'Antônio Carlos Jobim' }
-    ];
+    ], []);
 
     useEffect(() => {
-        // Registriere einen Callback, um den lokalen Zustand zu aktualisieren
-        const handleRemoveSong = (removedSong) => {
-            setSelectedCards((prev) =>
-                prev.filter((index) => songs[index]?.title !== removedSong.title)
-            );
+    const handleRemove = (song) => {
+            if (song.title === '__ALL__') {
+                setSelectedCards([]); // Alles abwählen
+            } else {
+                setSelectedCards((prev) =>
+                    prev.filter((index) => songs[index]?.title !== song.title)
+                );
+            }
         };
-
-        registerRemoveCallback(handleRemoveSong);
+        registerRemoveCallback(handleRemove);
     }, [registerRemoveCallback, songs]);
 
     const handleCardClick = (song, index) => {

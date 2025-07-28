@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useMemo, useContext, useEffect, useState } from 'react';
 import './PopRockClassic.css'; // Stile für diese Komponente
 import '../../styles/flex.css';
 import Icon from "../../pictures/Sektionen/Genres/Pop_Rock-Classics.png"; // Gemeinsame Flex-Stile
@@ -8,7 +8,7 @@ const PopRockClassic = () => {
     const { addSong, removeSong, registerRemoveCallback } = useContext(SongContext);
     const [selectedCards, setSelectedCards] = useState([]);
 
-    const songs = [
+    const songs = useMemo(() => [
         { title: 'All of Me', artist: 'John Legend' },
         { title: 'But for Now', artist: 'Jamie Cullum' },
         { title: 'Cannonball', artist: 'Damien Rice' },
@@ -29,17 +29,19 @@ const PopRockClassic = () => {
         { title: 'Something Just Like This', artist: 'The Chainsmokers & Coldplay' },
         { title: 'Walk On The Wild Side', artist: 'Lou Reed' },
         { title: 'Zieh die Schuh aus', artist: 'Roger Cicero' }
-    ];
+    ], []);
 
     useEffect(() => {
-        // Registriere einen Callback, um den lokalen Zustand zu aktualisieren
-        const handleRemoveSong = (removedSong) => {
-            setSelectedCards((prev) =>
-                prev.filter((index) => songs[index]?.title !== removedSong.title)
-            );
+    const handleRemove = (song) => {
+            if (song.title === '__ALL__') {
+                setSelectedCards([]); // Alles abwählen
+            } else {
+                setSelectedCards((prev) =>
+                    prev.filter((index) => songs[index]?.title !== song.title)
+                );
+            }
         };
-
-        registerRemoveCallback(handleRemoveSong);
+        registerRemoveCallback(handleRemove);
     }, [registerRemoveCallback, songs]);
 
     const handleCardClick = (song, index) => {
@@ -58,7 +60,7 @@ const PopRockClassic = () => {
         <div className="section-container">
             <div className="headline flex-row">
                 <h1>Pop-Rock-Classic</h1>
-                <img src={Icon} className="headline-icon" />
+                <img src={Icon} className="headline-icon" alt="" />
             </div>
             <div className="song-card-container flex-row space-around wrap">
                 {songs.map((song, index) => (

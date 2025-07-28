@@ -10,8 +10,7 @@ const Seventees = () => {
     const { addSong, removeSong, registerRemoveCallback } = useContext(SongContext);
     const [selectedCards, setSelectedCards] = useState([]);
     
-
-    const songs = [
+    const songs = React.useMemo(() => [
         { title: "Ain't No Sunshine", artist: 'Bill Withers' },
         { title: 'Billie Jean', artist: 'Michael Jackson' },
         { title: 'Come Together', artist: 'The Beatles' },
@@ -22,17 +21,19 @@ const Seventees = () => {
         { title: 'Smells Like Teen Spirit', artist: 'Nirvana' },
         { title: 'Sunny', artist: 'Boney M.' },
         { title: 'The Long And Winding Road', artist: 'The Beatles' }
-    ];
+    ], []);
 
     useEffect(() => {
-        // Registriere einen Callback, um den lokalen Zustand zu aktualisieren
-        const handleRemoveSong = (removedSong) => {
-            setSelectedCards((prev) =>
-                prev.filter((index) => songs[index]?.title !== removedSong.title)
-            );
+    const handleRemove = (song) => {
+            if (song.title === '__ALL__') {
+                setSelectedCards([]); // Alles abwählen
+            } else {
+                setSelectedCards((prev) =>
+                    prev.filter((index) => songs[index]?.title !== song.title)
+                );
+            }
         };
-
-        registerRemoveCallback(handleRemoveSong);
+        registerRemoveCallback(handleRemove);
     }, [registerRemoveCallback, songs]);
 
     const handleCardClick = (song, index) => {
@@ -51,7 +52,7 @@ const Seventees = () => {
         <div className="section-container">
             <div className="headline flex-row">
                 <h1>70's</h1>
-                <img src={Icon} className="headline-icon"/>
+                <img src={Icon} className="headline-icon" alt=""/>
             </div>
             <div className="song-card-container flex-row space-around wrap">
                 {songs.map((song, index) => (

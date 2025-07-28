@@ -1,16 +1,17 @@
 
 ToDo:
-- Callback in Alle Entfernen hinzufügen
-- 14 Tage auswählbar
-- Bis mit Dauer ersetzen (Start; von 0,5 Std bis 4 Std 0,5er Schritten)
-- Gruppierte Sektionen in KOntaktBox
-- Nur Nachricht unten Placeholder: (Anlass, Wünsche, …)
-- alphabetische Sortierung der Songliste
-- mindestens 3 Songs rausnehmen
-- HandleChange bisschen besser machen
 - demosong reinpacken
+- www auflösen lassen
+- Platzhalter für Bild
 
 DONE:
+- mindestens 3 Songs rausnehmen
+- alphabetische Sortierung der Songliste
+- Gruppierte Sektionen in KOntaktBox
+- Nur Nachricht unten Placeholder: (Anlass, Wünsche, …)
+- Bis mit Dauer ersetzen (Start; von 0,5 Std bis 4 Std 0,5er Schritten)
+- 14 Tage auswählbar
+- Callback in Alle Entfernen hinzufügen
 !!! nur der Name und die Email ist ein Pflichtfeld
 - Nachricht eingebbar beim kontakt (kein Pflichtfeld)
 - Datum / Uhrzeit von-bis / Anlass / Ort / PLZ / Straße, Hnr / Dauer

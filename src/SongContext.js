@@ -7,7 +7,9 @@ export const SongProvider = ({ children }) => {
     const removeCallbacks = []; // Liste der Callbacks
 
     const addSong = (song) => {
-        setSelectedSongs((prevSongs) => [...prevSongs, song]);
+        setSelectedSongs((prevSongs) => 
+            [...prevSongs, song].sort((a, b) => a.title.localeCompare(b.title))
+        );
     };
 
     const removeSong = (song) => {
@@ -21,7 +23,6 @@ export const SongProvider = ({ children }) => {
 
     const clearSongs = () => {
         setSelectedSongs([]);
-        // Optional: Benachrichtige Callbacks, falls du die lokale Auswahl in Sektionen auch leeren willst
         removeCallbacks.forEach((callback) => callback({ title: '__ALL__' }));
     };
 
