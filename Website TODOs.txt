@@ -1,18 +1,25 @@
 
 ToDo:
-- demosong reinpacken
-- www auflösen lassen
-- Platzhalter für Bild
+- Bild einpflegen
+- überprüfen der Pflichtfeld Errors
+- Note sauber machen
 
 DONE:
-- mindestens 3 Songs rausnehmen
+
+04.08.2025
+- demosong reinpacken
+- www auflösen lassen
 - alphabetische Sortierung der Songliste
+- Callback in Alle Entfernen hinzufügen
+- mindestens 3 Songs rausnehmen
 - Gruppierte Sektionen in KOntaktBox
 - Nur Nachricht unten Placeholder: (Anlass, Wünsche, …)
 - Bis mit Dauer ersetzen (Start; von 0,5 Std bis 4 Std 0,5er Schritten)
 - 14 Tage auswählbar
-- Callback in Alle Entfernen hinzufügen
 !!! nur der Name und die Email ist ein Pflichtfeld
+
+
+
 - Nachricht eingebbar beim kontakt (kein Pflichtfeld)
 - Datum / Uhrzeit von-bis / Anlass / Ort / PLZ / Straße, Hnr / Dauer
 - remove all Button

@@ -24,7 +24,7 @@ const Seventees = () => {
     ], []);
 
     useEffect(() => {
-    const handleRemove = (song) => {
+        const handleRemove = (song) => {
             if (song.title === '__ALL__') {
                 setSelectedCards([]); // Alles abwählen
             } else {

@@ -136,9 +136,9 @@ const Kontakt = () => {
     };
 
     useEffect(() => {
-    const closeBubbleHandler = () => setIsBubbleOpen(false);
-    window.addEventListener("closeBubble", closeBubbleHandler);
-    return () => window.removeEventListener("closeBubble", closeBubbleHandler);
+        const closeBubbleHandler = () => setIsBubbleOpen(false);
+        window.addEventListener("closeBubble", closeBubbleHandler);
+        return () => window.removeEventListener("closeBubble", closeBubbleHandler);
     }, []);
 
     // für Datumsselektor
@@ -197,7 +197,7 @@ const Kontakt = () => {
 
                             
                             <div className="group-container">
-                                <h4>Zeitpunkt</h4>
+                                <h4>Termin</h4>
                                 <div className="first-layer-form">
                                     
                                     <div className="flex-column date-input">
@@ -238,17 +238,16 @@ const Kontakt = () => {
                                                 id="dauer-select"
                                             >
                                                 <option value="" disabled>Dauer</option>
-                                                <option value="0.5">0.5  Stunde</option>
-                                                <option value="1">1  Stunde</option>
-                                                <option value="1.5">1.5  Stunden</option>
-                                                <option value="2">2  Stunden</option>
-                                                <option value="2.5">2.5  Stunden</option>
-                                                <option value="3">3  Stunden</option>
-                                                <option value="3.5">3.5  Stunden</option>
-                                                <option value="4">4  Stunden</option>
-                                                <option value="4.5">4.5  Stunden</option>
-                                                <option value="5">5  Stunden</option>
-                                                <option value="5.5">5.5  Stunden</option>
+                                                <option value="0.5">0.5  Std.</option>
+                                                <option value="1">1  Std.</option>
+                                                <option value="1.5">1.5  Std.</option>
+                                                <option value="2">2  Std.</option>
+                                                <option value="2.5">2.5  Std.</option>
+                                                <option value="3">3  Std.</option>
+                                                <option value="3.5">3.5  Std.</option>
+                                                <option value="4">4  Std.</option>
+                                                <option value="4.5">4.5  Std.</option>
+                                                <option value="5">5  Std.</option>
                                             </select>
                                         </div>
                                     </div>

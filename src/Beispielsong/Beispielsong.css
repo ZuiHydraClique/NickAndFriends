@@ -1,0 +1,33 @@
+#audio-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#audio-box {
+    width: 50%;
+    border-radius: 10px;
+    background-color: #f3f3f3;
+    box-shadow: rgba(0, 0, 0, 0.39) 2px 2px 5px 1px;
+    border: 4px solid #800020;
+}
+
+@media (max-width: 1000px) {
+    #audio-box {
+        width: 70%;
+    }
+}
+
+@media (max-width: 500px) {
+
+    #audio-container {
+        width: 115%;
+        margin-left: -7.5%;
+    }
+
+    #audio-box {
+        width: 100%;
+    }
+}
